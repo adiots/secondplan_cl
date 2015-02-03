@@ -1,0 +1,13 @@
+### pulgin
+sudo npm install grunt-contrib-coffee --save-dev
+sudo npm install grunt-contrib-concat --save-dev
+sudo npm install grunt-contrib-uglify --save-dev
+sudo npm install grunt-contrib-jshint --save-dev
+sudo npm install grunt-contrib-compass --save-dev
+sudo npm install grunt-contrib-cssmin --save-dev
+sudo npm install grunt-contrib-compress --save-dev
+sudo npm install grunt-contrib-copy --save-dev
+sudo npm install grunt-contrib-watch --save-dev
+sudo npm install grunt-contrib-clean --save-dev
+	
+
