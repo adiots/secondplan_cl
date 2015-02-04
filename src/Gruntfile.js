@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 				// 連結するファイル
 				src: ['js/*.js', 'js/plugin/jquery*.js'],
 				// 結果として生成されるJSファイル
-				dest: '<%= pkg.name %>.js'
+				dest: '<%= pkg.subname %>.js'
 			}
 		},
 		uglify: {
@@ -31,12 +31,12 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'<%= buildPath %>js/<%= pkg.name %>.min.js': [
+					'<%= buildPath %>js/<%= pkg.subname %>.js': [
 						'<%= concat.dist.dest %>'
 					],
-					'<%= buildPath %>js/utility.min.js': [
-						'js/plugin/utility.js',
-					]
+// 					'<%= buildPath %>js/utility.min.js': [
+// 						'js/plugin/utility.js',
+// 					]
 				}
 			}
 		},
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 					banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %> */\n'
 				},
 				files: {
-					'<%= buildPath %>css/<%= pkg.name %>.min.css': [
+					'<%= buildPath %>css/<%= pkg.subname %>.css': [
 						'css/*.css'
 					]
 				}
@@ -103,9 +103,88 @@ module.exports = function(grunt) {
 				files: [
 				{
 					expand: true,
-					//cwd: 'src/',
+					cwd: './',
 					src: 'img/*.png',
 					dest: '<%= buildPath %>img/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './js/plugin/',
+					src: '*.js',
+					dest: '<%= buildPath %>js/plugin/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './tmp/',
+					src: '*.tmp',
+					dest: '<%= buildPath %>/tmp/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './tmp/config/',
+					src: 'extend_head.tmp',
+					dest: '<%= buildPath %>/tmp/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './',
+					src: '*.php',
+					dest: '<%= buildPath %>',
+					flatten: true,
+					filter: 'isFile',
+				},
+				]
+			},
+			test: {
+				files: [
+				{
+					expand: true,
+					cwd: './',
+					src: 'img/*.png',
+					dest: '<%= buildPath %>img/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './js/plugin/',
+					src: '*.js',
+					dest: '<%= buildPath %>js/plugin/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './tmp/',
+					src: '*.tmp',
+					dest: '<%= buildPath %>/tmp/',
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './tmp/config/',
+					src: 'extend_head_tst.tmp',
+					dest: '<%= buildPath %>/tmp/config/',
+					rename: function(dest, src) {
+						return dest + 'extend_head.tmp';
+					},
+					flatten: true,
+					filter: 'isFile',
+				},
+				{
+					expand: true,
+					cwd: './',
+					src: '*.php',
+					dest: '<%= buildPath %>',
 					flatten: true,
 					filter: 'isFile',
 				},
@@ -148,6 +227,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['watch']);
 	grunt.registerTask('js-test', ['jshint']);
 	grunt.registerTask('compass-test', ['compass']);
+	grunt.registerTask('build-test', ['clean:testImage', 'coffee', 'jshint', 'concat', 'uglify', 'compass', 'copy:test', 'cssmin', 'compress', 'clean:end']);
 	grunt.registerTask('build', ['clean:testImage', 'coffee', 'jshint', 'concat', 'uglify', 'compass', 'copy', 'cssmin', 'compress', 'clean:end']);
 	
 	

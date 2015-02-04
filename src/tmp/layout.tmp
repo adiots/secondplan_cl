@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-JP" lang="ja-JP" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9" />
+    <title>%%PROJECT_NAME%% | %%PAGE%%</title>
+    <meta name="Description" content="%%PROJECT_DESCRIPTION%%セカンドプランは英語に興味のない人に英語の楽しさを伝える為のツールです、" />
+    <meta name="Author" content="Adiots" />
+    <!-- Smartphone settings. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="apple-touch-icon-precomposed" href="%%ICON_IMAGE_PATH%%" />
+    <!-- Facebook settings. -->
+    <meta property="og:url" content="http://localhost/secondplan_cl/build/" />
+    <meta property="og:image" content="%%SITE_IMAGE_PATH%%" />
+    <meta property="og:type" content="application" />
+    <meta property="og:site_name" content="Adiots" />
+    <!-- icon settings. -->
+    <link rel="shortcut icon" href="%%ICON_IMAGE_PATH%%" />
+    <link rel="home" href="http://localhost/secondplan_cl/build/" />
+    <link rel="stylesheet" href="css/slib.css" type="text/css" />
+    %%EXTEND_HEAD%%
+</head>
+<body>
+    %%BODY%%
+    <script src="js/slib.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/plugin/createjs-2014.12.12.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">%%SCRIPT%%</script>
+</body>
+</html>
